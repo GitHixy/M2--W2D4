@@ -16,24 +16,31 @@ ES. L'utente Marco Rossi e' un ambassador, quindi la frase dovrebbe essere "Marc
 Infine, crea un SECONDO array in cui inserirai SOLO gli ambassador.
 */
 
-const marco = {
-  name: "Marco",
-  lastName: "Rossi",
-  isAmbassador: true,
-}
+  let marco = {
+    name: "Marco",
+    lastName: "Rossi",
+    isAmbassador: true,
+  }
 
-const paul = {
-  name: "Paul",
-  lastName: "Flynn",
-  isAmbassador: false,
-}
+  let paul = {
+    name: "Paul",
+    lastName: "Flynn",
+    isAmbassador: false,
+  }
 
-const amy = {
-  name: "Amy",
-  lastName: "Reed",
-  isAmbassador: false,
-}
+  let amy = {
+    name: "Amy",
+    lastName: "Reed",
+    isAmbassador: false,
+  }
+
+  const users = [marco, paul, amy]
+
+console.log("Gli Utenti sono: ", users);
 
 const prices = [34, 5, 2]
 const shippingCost = 50
 let utenteCheEffettuaLAcquisto = amy //cambia il valore qui per provare se il tuo algoritmo funziona!
+
+let discountAmount = (prices * 30) / 100
+
