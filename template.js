@@ -16,31 +16,46 @@ ES. L'utente Marco Rossi e' un ambassador, quindi la frase dovrebbe essere "Marc
 Infine, crea un SECONDO array in cui inserirai SOLO gli ambassador.
 */
 
-  let marco = {
-    name: "Marco",
-    lastName: "Rossi",
-    isAmbassador: true,
+const marco = {
+  name: "Marco",
+  lastName: "Rossi",
+  isAmbassador: true,
+};
+
+const paul = {
+  name: "Paul",
+  lastName: "Flynn",
+  isAmbassador: false,
+};
+
+const amy = {
+  name: "Amy",
+  lastName: "Reed",
+  isAmbassador: false,
+};
+
+let users = [];
+users.push(marco, paul, amy);
+
+let ambassador = [];
+for (let i = 0; i < users.length; i++) {
+  if (users[i].isAmbassador) {
+    console.log(users[i].name + " " + users[i].lastName + " E' un Ambassador");
+    ambassador.push(users[i]);
+  } else {
+    console.log(
+      users[i].name + " " + users[i].lastName + " Non e' un Ambassador"
+    );
   }
+}
+console.log("Ambassador: ", ambassador);
 
-  let paul = {
-    name: "Paul",
-    lastName: "Flynn",
-    isAmbassador: false,
-  }
+const shippingCost = 50;
+let utenteCheEffettuaLAcquisto = amy; //cambia il valore qui per provare se il tuo algoritmo funziona!
 
-  let amy = {
-    name: "Amy",
-    lastName: "Reed",
-    isAmbassador: false,
-  }
-
-  const users = [marco, paul, amy]
-
-console.log("Gli Utenti sono: ", users);
-
-const prices = [34, 5, 2]
-const shippingCost = 50
-let utenteCheEffettuaLAcquisto = amy //cambia il valore qui per provare se il tuo algoritmo funziona!
-
-let discountAmount = (prices * 30) / 100
-
+const prices = [34, 5, 2];
+let sum = 0;
+for (let i = 0; i < prices.length; i++) {
+  sum += prices[i];
+}
+console.log("La somma di prices e' " + sum);
