@@ -64,9 +64,13 @@ let discountAmount = (sum * 30) / 100
 console.log("Lo sconto e' pari a " , discountAmount);
 
 for (let i=0; i < users.length; i++) {
-if (users[i].isAmbassador) {
-  console.log(users[i].name + " " + users[i].lastName + " Paga" , sum - discountAmount + shippingCost , "Essendo un cliente Ambassador");
-} else {
-  console.log(users[i].name + " " + users[i].lastName + " Paga" , sum + shippingCost , "Non essendo un cliente Ambassador");
-}
-}
+  if (users[i].isAmbassador && sum > 100) {
+    console.log(users[i].name + " " + users[i].lastName + " Paga" , sum - discountAmount , "Essendo un cliente Ambassador + Spedizione Gratis");
+  } else {
+    console.log(users[i].name + " " + users[i].lastName + " Paga" , sum , "Non essendo un cliente Ambassador");
+  } if (users[i].isAmbassador && sum < 100) {
+    console.log(users[i].name + " " + users[i].lastName + " Paga" , sum - discountAmount + shippingCost , "Essendo un cliente Ambassador");
+  } else {
+    console.log(users[i].name + " " + users[i].lastName + " Paga" , sum + shippingCost , "Non essendo un cliente Ambassador");
+  }
+  }
