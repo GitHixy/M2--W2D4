@@ -51,7 +51,7 @@ for (let i = 0; i < users.length; i++) {
 console.log("Ambassador: ", ambassador);
 
 const shippingCost = 50;
-let utenteCheEffettuaLAcquisto = amy; //cambia il valore qui per provare se il tuo algoritmo funziona!
+let utenteCheEffettuaLAcquisto = marco; //cambia il valore qui per provare se il tuo algoritmo funziona!
 
 const prices = [34, 5, 2];
 let sum = 0;
@@ -59,3 +59,14 @@ for (let i = 0; i < prices.length; i++) {
   sum += prices[i];
 }
 console.log("La somma di prices e' " + sum);
+
+let discountAmount = (sum * 30) / 100
+console.log("Lo sconto e' pari a " , discountAmount);
+
+for (let i=0; i < users.length; i++) {
+if (users[i].isAmbassador) {
+  console.log(users[i].name + " " + users[i].lastName + " Paga" , sum - discountAmount + shippingCost , "Essendo un cliente Ambassador");
+} else {
+  console.log(users[i].name + " " + users[i].lastName + " Paga" , sum + shippingCost , "Non essendo un cliente Ambassador");
+}
+}
