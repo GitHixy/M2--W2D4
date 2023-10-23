@@ -53,24 +53,45 @@ console.log("Ambassador: ", ambassador);
 const shippingCost = 50;
 let utenteCheEffettuaLAcquisto = marco; //cambia il valore qui per provare se il tuo algoritmo funziona!
 
-const prices = [34, 5, 2];
+const prices = [34, 70, 2];
 let sum = 0;
 for (let i = 0; i < prices.length; i++) {
   sum += prices[i];
 }
 console.log("La somma di prices e' " + sum);
 
-let discountAmount = (sum * 30) / 100
-console.log("Lo sconto e' pari a " , discountAmount);
+let discountAmount = (sum * 30) / 100;
+console.log("Lo sconto e' pari a ", discountAmount);
 
-for (let i=0; i < users.length; i++) {
+for (let i = 0; i < users.length; i++) {
+  if (users[i].isAmbassador) {
+    console.log(
+      users[i].name + " " + users[i].lastName + " Paga",
+      sum - discountAmount + shippingCost,
+      "Essendo un cliente Ambassador"
+    );
+  } else {
+    console.log(
+      users[i].name + " " + users[i].lastName + " Paga",
+      sum + shippingCost,
+      "Non essendo un cliente Ambassador"
+    );
+  }
+}
+
+
+for (let i = 0; i < users.length; i++) {
   if (users[i].isAmbassador && sum > 100) {
-    console.log(users[i].name + " " + users[i].lastName + " Paga" , sum - discountAmount , "Essendo un cliente Ambassador + Spedizione Gratis");
+    console.log(
+      users[i].name + " " + users[i].lastName + " Paga",
+      sum - discountAmount ,
+      "Essendo un cliente Ambassador con Spedizione Gratis"
+    );
   } else {
-    console.log(users[i].name + " " + users[i].lastName + " Paga" , sum , "Non essendo un cliente Ambassador");
-  } if (users[i].isAmbassador && sum < 100) {
-    console.log(users[i].name + " " + users[i].lastName + " Paga" , sum - discountAmount + shippingCost , "Essendo un cliente Ambassador");
-  } else {
-    console.log(users[i].name + " " + users[i].lastName + " Paga" , sum + shippingCost , "Non essendo un cliente Ambassador");
+    console.log(
+      users[i].name + " " + users[i].lastName + " Paga",
+      sum ,
+      "Non essendo un cliente Ambassador ma con Spedizione Gratis"
+    );
   }
-  }
+}
